@@ -39,6 +39,9 @@ button {
   pointer-events: none;
   opacity: 0%;
   text-align: center;
+
+  animation: slide-out 0.5s ease-in-out;
+  animation-fill-mode: backwards;
 }
 
 .popup-modal p {
@@ -52,12 +55,35 @@ button {
   background: #000;
   opacity: 0%;
 }
-
 .popup-modal.show {
   opacity: 100%;
   pointer-events: all;
+  animation: slide-in 0.5s ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .backdrop.show {
   opacity: 30%;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translate(-50%, -100%);
+    opacity: 0.25;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -100%);
+    opacity: 0.25;
+  }
 }
